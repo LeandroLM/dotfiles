@@ -1,15 +1,26 @@
+" **********************************************************************
+"" Plugins
+" **********************************************************************
+
 " Gotta be first
 set nocompatible
 set autoread
 
 filetype off
+" **********************************************************************
+"" Plugins
+" **********************************************************************
+
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
 
-" ----- Making Vim look good ------------------------------------------
+" **********************************************************************
+"" Plugins
+" **********************************************************************
+
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 Plugin 'vim-airline/vim-airline'
@@ -20,12 +31,17 @@ Plugin 'erichdongubler/vim-sublime-monokai'
 " ----- Vim as a programmer's text editor -----------------------------
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/a.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'vim-scripts/grep.vim'
+Plugin 'vim-scripts/CSApprox'
+
 
 " ----- Working with Git ----------------------------------------------
 Plugin 'airblade/vim-gitgutter'
@@ -51,6 +67,46 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'cakebaker/scss-syntax.vim'"
 
+" Disable arrow keys, hjkl keys, page up and down keys, among others
+" To enabled it: call HardMode()
+" To disabled it: call EasyMode()
+Plugin 'wikitopian/hardmode'
+
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+
+" **********************************************************************
+" Mappings
+" **********************************************************************
+
+" Move lines up and down by one position. It also works with a visualy
+" selected block of text
+execute "set <M-j>=\ej"
+execute "set <M-k>=\ek"
+nnoremap <M-j> :m .+1<CR>==
+nnoremap <M-k> :m .-2<CR>==
+inoremap <M-j> <Esc>:m .+1<CR>==gi
+inoremap <M-k> <Esc>:m .-2<CR>==gi
+vnoremap <M-j> :m '>+1<CR>gv=gv
+vnoremap <M-k> :m '<-2<CR>gv=gv
+
+" Allows pressing j and k at the same time to go back to Normal mode
+inoremap jk <ESC>
+inoremap kj <ESC>
+
+" Disable arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+
+" Allow easy navigation between windows
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h
+
 call vundle#end()
 
 filetype plugin indent on
@@ -61,6 +117,8 @@ set number
 set showcmd
 set incsearch
 set hlsearch
+set noswapfile
+set relativenumber
 
 syntax on
 
@@ -70,6 +128,7 @@ set mouse=a
 " in the sign column.
 hi clear SignColumn
 
+runtime macros/matchit.vim
 " ----- Plugin-Specific Settings --------------------------------------
 
 " ----- altercation/vim-colors-solarized settings -----
