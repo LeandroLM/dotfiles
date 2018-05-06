@@ -24,6 +24,32 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-scripts/a.vim'
+
+" ----- Working with Git ----------------------------------------------
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+
+" ----- Other text editing features -----------------------------------
+Plugin 'Raimondi/delimitMate'
+Plugin 'christoomey/vim-tmux-navigator'
+
+" Highlight and strip trailing whitespace
+Plugin 'ntpeters/vim-better-whitespace'
+
+" Easily surround chunks of text
+Plugin 'tpope/vim-surround'
+
+" Automaticall insert the closing HTML tag
+Plugin 'HTML-AutoCloseTag'
+
+" Make tmux look like vim-airline (read README for extra instructions)
+Plugin 'edkolev/tmuxline.vim'
+
+" Syntax highlighting
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'cakebaker/scss-syntax.vim'"
 
 call vundle#end()
 
@@ -66,7 +92,7 @@ set laststatus=2
 "     https://github.com/abertsch/Menlo-for-Powerline
 " download all the .ttf files, double-click on them and click "Install"
 " Finally, uncomment the next line
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 
 " Show PASTE if in paste mode
 let g:airline_detect_paste=1
@@ -107,3 +133,16 @@ nmap <silent> <leader>b :TagbarToggle<CR>
 " Uncomment to open tagbar automatically whenever possible
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 
+" ----- airblade/vim-gitgutter settings -----
+" In vim-airline, only display "hunks" if the diff is non-zero
+let g:airline#extensions#hunks#non_zero_only = 1
+
+" ----- Raimondi/delimitMate settings -----
+let delimitMate_expand_cr = 1
+augroup mydelimitMate
+  au!
+  au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
+  au FileType tex let b:delimitMate_quotes = ""
+  au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
+  au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
+augroup END
