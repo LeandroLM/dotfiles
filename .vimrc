@@ -76,6 +76,23 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 
 " **********************************************************************
+" Basic configuration
+" **********************************************************************
+
+"" Use the clipboard as de default register
+set clipboard=unnamedplus
+
+"" Set tab width to 2 spaces and set autoidentation
+set tabstop=2
+set softtabstop=0
+set shiftwidth=2
+set expandtab
+set autoindent
+
+"" Map leader character to
+let mapleader=','
+
+" **********************************************************************
 " Mappings
 " **********************************************************************
 
