@@ -89,6 +89,9 @@ set shiftwidth=2
 set expandtab
 set autoindent
 
+"" Treat numbers as decimal, not octal
+set nrformats-=octal
+
 "" Map leader character to
 let mapleader=','
 
