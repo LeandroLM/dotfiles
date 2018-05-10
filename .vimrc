@@ -41,6 +41,7 @@ Plugin 'vim-scripts/a.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'vim-scripts/grep.vim'
 Plugin 'vim-scripts/CSApprox'
+Plugin 'kchmck/vim-coffee-script'
 
 
 " ----- Working with Git ----------------------------------------------
