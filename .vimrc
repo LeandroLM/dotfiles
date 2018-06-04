@@ -44,7 +44,6 @@ Plugin 'vim-scripts/grep.vim'
 Plugin 'vim-scripts/CSApprox'
 Plugin 'kchmck/vim-coffee-script'
 
-
 " ----- Working with Git ----------------------------------------------
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
@@ -76,6 +75,25 @@ Plugin 'wikitopian/hardmode'
 
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
+
+" **********************************************************************
+" Language specific plugins
+" **********************************************************************
+
+" ruby
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-projectionist'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'ecomba/vim-ruby-refactoring'
+
+" javascript
+"" Javascript Bundle
+Plugin 'jelera/vim-javascript-syntax'
+
+" elixir
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'carlosgaldino/elixir-snippets'
 
 " **********************************************************************
 " Basic configuration
