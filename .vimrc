@@ -27,6 +27,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'erichdongubler/vim-sublime-monokai'
+Plugin 'chriskempson/base16-vim'
 
 " ----- Vim as a programmer's text editor -----------------------------
 Plugin 'scrooloose/nerdtree'
@@ -179,7 +180,7 @@ set background=dark
 "let g:solarized_termcolors=256
 
 " Set the colorscheme
-colorscheme molokai
+colorscheme base16-default-dark
 
 
 " ----- bling/vim-airline settings -----
