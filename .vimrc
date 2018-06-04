@@ -7,10 +7,10 @@ set nocompatible
 set autoread
 
 filetype off
+
 " **********************************************************************
 "" Plugins
 " **********************************************************************
-
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -101,7 +101,7 @@ Plugin 'carlosgaldino/elixir-snippets'
 " **********************************************************************
 
 "" Use the clipboard as de default register
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 "" Set tab width to 2 spaces and set autoidentation
 set tabstop=2
