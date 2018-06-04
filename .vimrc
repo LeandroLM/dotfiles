@@ -148,6 +148,9 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
 
+" This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR>:<backspace>
+
 call vundle#end()
 
 filetype plugin indent on
