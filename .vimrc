@@ -34,7 +34,8 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'vim-syntastic/syntastic'
+" Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
@@ -89,9 +90,17 @@ Plugin 'tpope/vim-projectionist'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'ecomba/vim-ruby-refactoring'
 
-" javascript
-"" Javascript Bundle
-Plugin 'jelera/vim-javascript-syntax'
+" javascript and react
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'mattn/emmet-vim'
+
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
 
 " elixir
 Plugin 'elixir-editors/vim-elixir'
@@ -151,6 +160,10 @@ noremap <C-h> <C-w>h
 " This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR>:<backspace>
 
+" Navigate to next and previsous errors shown by ale
+nmap <silent> <C-n> <Plug>(ale_next_wrap)
+nmap <silent> <C-m> <Plug>(ale_previous_wrap)
+
 call vundle#end()
 
 filetype plugin indent on
@@ -173,7 +186,12 @@ set mouse=a
 hi clear SignColumn
 
 runtime macros/matchit.vim
+
 " ----- Plugin-Specific Settings --------------------------------------
+
+" ----- w0rp/ale -----
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
 
 " ----- altercation/vim-colors-solarized settings -----
 " Toggle this to "light" for light colorscheme
@@ -250,3 +268,19 @@ augroup mydelimitMate
   au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
   au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
+
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = "ø"
+let g:javascript_conceal_underscore_arrow_function = "⇒"
+
+set conceallevel=1
+map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
