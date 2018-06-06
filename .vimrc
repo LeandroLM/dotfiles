@@ -124,7 +124,7 @@ set autoindent
 set nrformats-=octal
 
 "" Map leader character to
-let mapleader=','
+let mapleader="\<Space>"
 
 " **********************************************************************
 " Mappings
