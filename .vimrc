@@ -23,6 +23,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
+Plugin 'w0ng/vim-hybrid'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -141,7 +142,6 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-
 " Allow easy navigation between windows
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -184,6 +184,7 @@ set background=dark
 
 " Set the colorscheme
 colorscheme base16-default-dark
+" colorscheme hybrid
 
 
 " ----- bling/vim-airline settings -----
