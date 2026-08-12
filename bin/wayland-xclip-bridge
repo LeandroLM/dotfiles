@@ -1,0 +1,22 @@
+#!/bin/bash
+# Bridge Wayland clipboard → X11 CLIPBOARD so XWayland apps can read it.
+# Uses a polling loop so xclip stays alive as a child of this process.
+LAST_FILE=/tmp/wayland-xclip-last
+XCLIP_PID=
+
+while true; do
+  content=$(wl-paste --type text 2>/dev/null)
+  if [ -n "$content" ]; then
+    last=$(cat "$LAST_FILE" 2>/dev/null)
+    if [ "$content" != "$last" ]; then
+      printf "%s" "$content" > "$LAST_FILE"
+      # Kill previous xclip, start fresh one that serves indefinitely
+      kill "$XCLIP_PID" 2>/dev/null
+      pkill -f "xclip -selection clipboard" 2>/dev/null
+      sleep 0.05
+      printf "%s" "$content" | DISPLAY=:0 xclip -selection clipboard -loops 0 &
+      XCLIP_PID=$!
+    fi
+  fi
+  sleep 0.3
+done
