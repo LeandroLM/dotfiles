@@ -1,5 +1,29 @@
 # dotfiles
 
+## Install
+
+```bash
+bash install.sh
+```
+
+Symlinks or copies personal config files to the right places. Safe to re-run
+after an omarchy update if it reset any managed files.
+
+| File in repo | Installed to | How |
+|---|---|---|
+| `tmux.conf` | `~/.tmux.conf` | symlink |
+| `tmux-omarchy.conf` | `~/.config/tmux/tmux.conf` | copy |
+| `hypr/input.lua` | `~/.config/hypr/input.lua` | symlink |
+| `hypr/autostart.lua` | `~/.config/hypr/autostart.lua` | symlink |
+| `terminal/foot.ini` | `~/.config/foot/foot.ini` | copy |
+| `terminal/ghostty` | `~/.config/ghostty/config` | copy |
+| `terminal/kitty.conf` | `~/.config/kitty/kitty.conf` | copy |
+
+**Symlinked files** — edits in `~/.config/` automatically update the repo.
+**Copied files** — omarchy may reset these on major upgrades; run `install.sh` to restore.
+
+---
+
 ## bin/wayland-xclip-bridge
 
 Bridges the Wayland clipboard to X11 so XWayland apps can read it.
