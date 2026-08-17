@@ -11,6 +11,7 @@ hl.config({
 
     -- Use a specific keyboard variant if needed (e.g. intl for international keyboards).
     kb_variant = "intl",
+    kb_options = "ctrl:nocaps,shift:both_capslock_cancel",
   },
 })
 
